@@ -205,14 +205,9 @@ func (mw *GinJWTMiddleware) readKeys() error {
 }
 
 func (mw *GinJWTMiddleware) privateKey() error {
-	keyData, err := ioutil.ReadFile(mw.PrivKeyFile)
-	if err != nil {
-		return ErrNoPrivKeyFile
-	}
-	key, err := jwt.ParseRSAPrivateKeyFromPEM(keyData)
-	if err != nil {
-		return ErrInvalidPrivKey
-	}
+	// I dont need issue token
+	keyData, _ := ioutil.ReadFile(mw.PrivKeyFile)
+	key, _ := jwt.ParseRSAPrivateKeyFromPEM(keyData)
 	mw.privKey = key
 	return nil
 }
