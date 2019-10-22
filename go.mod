@@ -1,4 +1,4 @@
-module github.com/4406arthur/gin-jwt
+module github.com/4406arthur/gin-jwt/v2
 
 go 1.12
 
